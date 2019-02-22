@@ -20,8 +20,6 @@ export default class Store {
     this.abstractStore = this.localStore
     this.masqConfig = nconf.get().masq
     if (this.masqConfig.enabled) {
-      this.masqEventTarget = document.createElement('store')
-
       this.masqStore = new MasqStore(this.masqConfig)
       if (this.masqStore.isLoggedIn()) {
         this.abstractStore = this.masqStore
@@ -34,7 +32,7 @@ export default class Store {
     return this
   }
 
-  onToggleStore(cb) {
+  onUpdate(cb) {
     if (this.masqConfig.enabled) {
       this.masqEventTarget.addEventListener('store_logged_in', cb)
       this.masqEventTarget.addEventListener('store_logged_out', cb)
@@ -48,15 +46,7 @@ export default class Store {
     }
 
     try {
-      const loginParams = {
-        endpoint: this.masqConfig.endpoint,
-        url: window.location.origin + window.location.pathname,
-        title: this.masqConfig.title,
-        desc: this.masqConfig.desc,
-        icon: this.masqConfig.icon
-      }
-
-      await this.masqStore.login(loginParams)
+      await this.masqStore.login()
     } catch (e) {
       Error.sendOnce('store', 'login', 'error logging in', e)
       throw e
@@ -64,15 +54,10 @@ export default class Store {
 
     // login was successful, use masqStore as abstractStore until logout
     this.abstractStore = this.masqStore
-    this.masqEventTarget.dispatchEvent(new Event('store_logged_in'))
+    this.update()
   }
 
   async logout() {
-    if (!this.masqConfig.enabled) {
-      Error.sendOnce('store', 'logout', 'error trying to logout with disabled Masq', e)
-      return
-    }
-
     try {
       await this.masqStore.logout()
     } catch (e) {
@@ -80,21 +65,17 @@ export default class Store {
       throw e
     }
     this.abstractStore = this.localStore
-    this.masqEventTarget.dispatchEvent(new Event('store_logged_out'))
+    this.update()
   }
 
   isLoggedIn() {
-    if (!this.masqConfig.enabled) {
-      Error.sendOnce('store', 'isLoggedIn', 'error trying to check if logged into Masq with disabled Masq', e)
-      return
-    }
-
     try {
       return this.masqStore.isLoggedIn()
     } catch (e) {
       Error.sendOnce('store', 'isLoggedIn', 'error checking if logged in with masq', e)
       throw e
     }
+    this.update()
   }
 
   async getUserInfo() {

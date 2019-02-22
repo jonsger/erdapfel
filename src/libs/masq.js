@@ -46,7 +46,7 @@ export default class MasqStore {
     this.masqPopupWindow = window.open(link, 'masq', 'height=700,width=500')
   }
 
-  async login(apps) {
+  async login() {
     await this.checkInit()
     // open Masq app window to connect to Masq
     this.openLoginPopupWindow(this.loginLink)
