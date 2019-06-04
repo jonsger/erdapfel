@@ -89,6 +89,7 @@ PoiPanel.prototype.closeAction = function() {
   if (this.poi.meta && this.poi.meta.source) Telemetry.add("close", "poi", this.poi.meta.source)
   fire('clean_marker')
   PanelManager.resetLayout()
+  fire("restore_location")
 }
 
 PoiPanel.prototype.close = async function() {
@@ -190,6 +191,7 @@ PoiPanel.prototype.backToFavorite = function() {
 PoiPanel.prototype.backToList = function() {
   Telemetry.add(Telemetry.POI_BACKTOLIST)
   this.close();
+  fire("restore_location")
   this.list.open();
 }
 
