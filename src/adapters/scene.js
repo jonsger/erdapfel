@@ -54,6 +54,7 @@ Scene.prototype.setupInitialPosition = async function () {
 }
 
 Scene.prototype.initMapBox = function () {
+  console.log(getStyle());
   this.mb = new Map({
     attributionControl: false,
     container: 'scene_container',
