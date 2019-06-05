@@ -457,7 +457,7 @@ msgid "halt"
 msgstr "Halt"
 
 msgid "hardware shop"
-msgstr "Eisenwarenhandlung"
+msgstr "Eisenwarenhandel"
 
 msgid "hearing aids shop"
 msgstr "Geschäft für Hörgeräte"
@@ -478,7 +478,7 @@ msgid "ice cream"
 msgstr "Eiscreme"
 
 msgid "ice rink"
-msgstr "Eisring"
+msgstr "Eisbahn"
 
 msgid "interior decoration shop"
 msgstr "Geschäft für Innenausstattung"
@@ -604,7 +604,7 @@ msgid "prison"
 msgstr "Gefängnis"
 
 msgid "pub"
-msgstr "Pub"
+msgstr "Kneipe"
 
 msgid "public building"
 msgstr "Öffentliches Gebäude"
@@ -634,7 +634,7 @@ msgid "scuba diving"
 msgstr "Sporttauchen"
 
 msgid "resale shop"
-msgstr "Wiederverkäufer"
+msgstr "Gebrauchtwarenladen"
 
 msgid "shoes"
 msgstr "Schuhe"
@@ -679,7 +679,7 @@ msgid "swimming area"
 msgstr "Badebereich"
 
 msgid "swimming pool"
-msgstr "Schwimmbad"
+msgstr "Schwimmbecken"
 
 msgid "table tennis"
 msgstr "Tischtennis"
@@ -793,16 +793,16 @@ msgid "Delete"
 msgstr "Löschen"
 
 msgid "Use"
-msgstr ""
+msgstr "Benutzen"
 
 msgid "to secure your favorites on all your devices"
-msgstr ""
+msgstr "um alle Ihre Favoriten auf allen Geräten zu speichern"
 
 msgid "Patience, Masq is activating..."
-msgstr ""
+msgstr "Geduld, Masq wird aktiviert..."
 
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 msgid "Masq is activated, your data is now secured !"
 msgstr ""
